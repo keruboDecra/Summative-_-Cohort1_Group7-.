@@ -14,3 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+for running our code, choose the right emulator, An emulator with a low API such as 19 and below gave us a problem when running our program
+
+please choose an emulator with an API level of 30 and above, 
