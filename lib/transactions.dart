@@ -3,6 +3,7 @@ import 'card.dart';
 import 'transactionhistory.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class TransactionPage extends StatefulWidget {
   const TransactionPage({Key? key}) : super(key: key);

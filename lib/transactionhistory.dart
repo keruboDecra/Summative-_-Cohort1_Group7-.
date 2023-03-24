@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'dummy.dart';
+import 'notifications.dart';
+import 'profile_page.dart'; // assuming this is the file containing the BankCardList screen
+
+
 class TransactionHistoryPage extends StatefulWidget {
   const TransactionHistoryPage({Key? key}) : super(key: key);
 
@@ -37,6 +42,50 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> {
                 '${transaction.transactionAmount.toStringAsFixed(2)} - ${transaction.transactionDate.toString()}'),
           );
         },
+
+
+
+      ),
+
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: Icon(Icons.credit_card),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => HomePage()),
+                );
+                // navigate to card-related page
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => notificationsPage()),
+                );
+              },
+            ),
+            IconButton(
+                icon: Icon(Icons.person),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfilePage(email: '',phoneNumber: '',username: '',),
+                    ),
+                  );
+// navigate to profile page
+                }),
+          ],
+        ),
       ),
     );
   }

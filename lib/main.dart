@@ -6,6 +6,8 @@ import 'login_screen.dart';
 import 'profile_page.dart';
 import 'signup_screen.dart';
 import 'dummy.dart';
+import 'load.dart';
+
 
 
 void main() async {
@@ -25,11 +27,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/login',
+      initialRoute: '/loading',
       routes: {
+        '/loading': (context) => LoadingScreen(),
+
         '/signup': (context) => SignUpPage(context: context),
         '/login': (context) => LoginPage(),
         '/home': (context) => const HomePage()
+
       },
 
     );

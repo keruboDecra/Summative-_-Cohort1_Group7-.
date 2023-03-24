@@ -31,26 +31,17 @@ class BankCard {
   });
 }
 
-
-
-
 class BankCardList extends StatefulWidget {
   const BankCardList({Key? key}) : super(key: key);
 
-  get bankCards => null;
-
   @override
   _BankCardListState createState() => _BankCardListState();
+
+  List<BankCard> get bankCards => _BankCardListState()._bankCards;
 }
 
 class _BankCardListState extends State<BankCardList> {
-  late BuildContext context;
 
-  @override
-  void initState() {
-    super.initState();
-    context = context;
-  }
 
   final List<BankCard> _bankCards = [
     BankCard(
@@ -72,6 +63,8 @@ class _BankCardListState extends State<BankCardList> {
       idNumber: '3478',
     ),
   ];
+
+
 
   void _addBankCard() {
     Navigator.push(
@@ -115,7 +108,6 @@ class _BankCardListState extends State<BankCardList> {
       appBar: AppBar(
         title: const Text('Bank Cards'),
       ),
-
       body: ListView.builder(
         itemCount: _bankCards.length,
         itemBuilder: (context, index) {

@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
         actions: [
 
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: Icon(Icons.logout, color: Colors.black),
             onPressed: () {
               showDialog(
                 context: context,
@@ -87,7 +87,6 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(width: 9),
-            Text('    My Card'),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -123,38 +122,41 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Card(
-                    child: SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BankCardList()),
-                          );
-                        },
-                        child:
-                        Row(
-                          children: [
-                            Text(
-                              'My Cards',
-                              style: TextStyle(fontSize: 24),
-                            ),
-                            SizedBox(width: 16),
-                            Image(
-                              image: AssetImage('assets/cardicon.png'),
-                              height: 180,
-                              width: 240,
-                              fit: BoxFit.cover,
-                            ),
-                          ],
-                        )
 
-                      ),
+
+                  Card(
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: InkWell(
+
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BankCardList()),
+                              );
+                            },
+                            child: Image(
+                              image: AssetImage("assets/cardicon.png"),
+                              height: 30,
+                              width: 30,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 7), // add some space between the image and the label
+                        Text(
+                          "Cards",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
+
+
+
                 ],
               ),
             ),
@@ -222,21 +224,38 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 24),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.payment),
-              title: Text('You received payment'),
-              subtitle: Text('\$50\nAmmy Silver'),
+
+
+
+            Card(
+              margin: EdgeInsets.all(16),
+              child: ListTile(
+                leading: Icon(Icons.payment),
+                title: Text('You received payment'),
+                subtitle: Text('\$50\nAmmy Silver'),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.payment),
-              title: Text('You received payment'),
-              subtitle: Text('\$100\nAmmy Silver'),
+
+
+
+            Card(
+              margin: EdgeInsets.all(16),
+              child: ListTile(
+                leading: Icon(Icons.payment),
+                title: Text('You received payment'),
+                subtitle: Text('\$100\nAmmy Silver'),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.payment),
-              title: Text('You received payment'),
-              subtitle: Text('\$500\nAmmy Silver'),
+            Card(
+              margin: EdgeInsets.all(16),
+              child: ListTile(
+                leading: Icon(Icons.payment),
+                title: Text('You received payment'),
+                subtitle: Text('\$900\nAmmy Silver'),
+              ),
             ),
+
+
           ],
         ),
       ),
@@ -280,7 +299,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfilePage(user: '',)
+                      builder: (context) => ProfilePage(email: '',phoneNumber: '',username: '',),
                     ),
                   );
 // navigate to profile page
@@ -288,6 +307,10 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+
+
+
+
     );
   }
 }

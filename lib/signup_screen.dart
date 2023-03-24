@@ -30,7 +30,6 @@ class _SignUpPageState extends State<SignUpPage> {
   final _firestore = FirebaseFirestore.instance;
 
   bool _isLoading = false;
-
   Future<void> signUp() async {
     setState(() {
       _isLoading = true;
@@ -52,7 +51,9 @@ class _SignUpPageState extends State<SignUpPage> {
         context,
         MaterialPageRoute(
           builder: (context) => ProfilePage(
-            user: userCredential.user!.uid,
+            email: email,
+            username: username,
+            phoneNumber: phoneNumber,
           ),
         ),
       );
@@ -78,7 +79,6 @@ class _SignUpPageState extends State<SignUpPage> {
       });
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

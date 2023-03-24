@@ -3,6 +3,8 @@ import 'dart:ui'; // add this line
 import 'package:finmate/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'dummy.dart';
+import 'login_screen.dart';
+
 import 'package:lottie/lottie.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -24,8 +26,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
           timer.cancel();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => SignUpPage(context: context)),
-          );
+            MaterialPageRoute(builder: (context) => LoginPage(),
+          ));
         }
       });
     }

@@ -60,14 +60,32 @@ class _HomepState extends State<Homep> {
 
           actions: [
             ElevatedButton(
-                onPressed: () async {
-                  await FirebaseAuth.instance.signOut();
-                  if (!mounted) return;
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return LoginPage();
-                  }));
-                },
-                child: const Text("Sign In")),
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                if (!mounted) return;
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return LoginPage();
+                }));
+              },
+              style: ElevatedButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 14),
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 13),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                primary: Colors.white, // button background color
+              ),
+              child: const Text(
+                "Sign In",
+                style: TextStyle(
+                  color: Colors.blue, // text color
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+
+
             IconButton(
               icon: Icon(Icons.logout),
               onPressed: () {
@@ -105,8 +123,7 @@ class _HomepState extends State<Homep> {
 
 
 
-        body: SingleChildScrollView(
-            child: Column(        children: [
+        body: Column(        children: [
 
               SizedBox(width: 300),
               Padding(
@@ -154,10 +171,10 @@ class _HomepState extends State<Homep> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 10), // add some space between the image and the label
+                          SizedBox(width: 7), // add some space between the image and the label
                           Text(
-                            "My Cards",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            "Cards",
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -239,7 +256,7 @@ class _HomepState extends State<Homep> {
 
                 height: 250,
                 child: ListView(
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
                   children: [
                     SizedBox(width: 90),
                     Column(
@@ -304,22 +321,41 @@ class _HomepState extends State<Homep> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  side: BorderSide(color: Colors.blue),
+                  side: BorderSide(color: Colors.white),
                 ),
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 70),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Get Started',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                  Center(
+                  child: SizedBox(
+                  width: 200,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SignUpPage(context: context)),
+                          );
+                        },
+                        child: Text(
+                          'Get Started',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      Icon(
+
+                    ),
+                  ),
+                ),
+
+                Icon(
                         Icons.arrow_forward,
                         color: Colors.blue,
                       ),
@@ -334,7 +370,7 @@ class _HomepState extends State<Homep> {
 
 
 
-            ])));
+            ]));
 
 
 
